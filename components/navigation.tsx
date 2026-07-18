@@ -2,8 +2,8 @@
 
 import { User, ShoppingBag, Menu, X } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 import { useState } from "react"
+import { MalajeLogo } from "@/components/malaje-logo"
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -12,15 +12,8 @@ export function Navigation() {
     <nav className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl transition-colors duration-300">
       <div className="flex justify-between items-center w-full px-8 py-6">
         {/* Brand Logo */}
-        <Link href="/" className="block">
-          <Image 
-            src="/images/malaje-raven-logo.jpg" 
-            alt="MALAJE" 
-            width={160} 
-            height={50}
-            className="h-10 w-auto invert"
-            priority
-          />
+        <Link href="/" className="block text-foreground">
+          <MalajeLogo size="sm" />
         </Link>
 
         {/* Navigation Links - Desktop */}
@@ -44,9 +37,8 @@ export function Navigation() {
           <button className="text-foreground hover:text-accent transition-none hidden md:block">
             <User className="w-6 h-6" />
           </button>
-          <button className="text-foreground hover:text-accent transition-none relative">
+          <button className="text-foreground hover:text-accent transition-none">
             <ShoppingBag className="w-6 h-6" />
-            <span className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full" />
           </button>
           <button 
             className="text-foreground hover:text-accent transition-none md:hidden"

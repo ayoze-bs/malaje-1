@@ -16,7 +16,7 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-20 text-center px-4">
-        <h1 className="font-[var(--font-headline)] font-bold text-6xl md:text-8xl lg:text-9xl tracking-[0.2em] md:tracking-[0.3em] text-white uppercase mb-8 leading-none">
+        <h1 className="font-[var(--font-headline)] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl tracking-normal sm:tracking-[0.1em] md:tracking-[0.2em] lg:tracking-[0.3em] text-white uppercase mb-8 leading-none">
           NOT FOR<br />EVERYONE
         </h1>
         <button className="bg-white text-black font-[var(--font-headline)] font-bold tracking-widest uppercase py-5 px-12 hover:bg-accent hover:text-white transition-colors duration-0">

@@ -1,6 +1,31 @@
-import { Share2, Globe } from "lucide-react"
+"use client"
+
+import { Share2 } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
+import { toast } from "sonner"
+import { MalajeLogo } from "@/components/malaje-logo"
+
+async function handleShare() {
+  const shareData = {
+    title: "MALAJE",
+    text: "MALAJE | Not For Everyone",
+    url: typeof window !== "undefined" ? window.location.href : "",
+  }
+
+  if (typeof navigator !== "undefined" && navigator.share) {
+    try {
+      await navigator.share(shareData)
+    } catch {
+      // user cancelled the share sheet, nothing to do
+    }
+    return
+  }
+
+  if (typeof navigator !== "undefined" && navigator.clipboard) {
+    await navigator.clipboard.writeText(shareData.url)
+    toast("Enlace copiado al portapapeles")
+  }
+}
 
 export function Footer() {
   return (
@@ -8,31 +33,25 @@ export function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 px-6 md:px-8">
         {/* Brand & Tagline */}
         <div>
-          <div className="mb-8">
-            <Image 
-              src="/images/malaje-raven-logo.jpg" 
-              alt="MALAJE" 
-              width={180} 
-              height={60}
-              className="h-14 w-auto invert"
-            />
+          <div className="mb-8 text-foreground">
+            <MalajeLogo size="sm" />
           </div>
           <p className="font-[var(--font-headline)] font-bold tracking-widest text-[10px] uppercase text-muted-foreground">
-            © 2024 MALAJE. TECHNICAL PRECISION.
+            © {new Date().getFullYear()} MALAJE. TECHNICAL PRECISION.
           </p>
         </div>
-        
+
         {/* Navigation Links */}
         <div className="grid grid-cols-2 gap-8">
           <div className="flex flex-col gap-4">
-            <Link 
-              href="#" 
+            <Link
+              href="/privacidad"
               className="font-[var(--font-headline)] font-bold tracking-widest text-[10px] uppercase text-muted-foreground hover:text-accent"
             >
               PRIVACY
             </Link>
-            <Link 
-              href="#" 
+            <Link
+              href="/terminos"
               className="font-[var(--font-headline)] font-bold tracking-widest text-[10px] uppercase text-muted-foreground hover:text-accent"
             >
               TERMS
@@ -53,17 +72,16 @@ export function Footer() {
             </Link>
           </div>
         </div>
-        
+
         {/* Social/Status */}
         <div className="flex flex-col items-start md:items-end justify-between gap-8">
-          <div className="flex gap-6">
-            <button className="text-foreground cursor-pointer hover:text-accent">
-              <Share2 className="w-5 h-5" />
-            </button>
-            <button className="text-foreground cursor-pointer hover:text-accent">
-              <Globe className="w-5 h-5" />
-            </button>
-          </div>
+          <button
+            className="text-foreground cursor-pointer hover:text-accent"
+            onClick={handleShare}
+            aria-label="Compartir"
+          >
+            <Share2 className="w-5 h-5" />
+          </button>
           <div className="text-left md:text-right">
             <span className="font-[var(--font-headline)] font-bold tracking-widest text-[10px] uppercase text-foreground">
               STATUS: OPERATIONAL

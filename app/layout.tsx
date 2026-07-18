@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Space_Grotesk, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({ 
@@ -23,6 +24,21 @@ export const metadata: Metadata = {
   },
   description: 'Ropa deportiva técnica para el atleta de alta intensidad. Rendimiento de precisión.',
   keywords: ['ropa deportiva', 'cycling', 'apparel', 'jersey', 'performance', 'athletic wear'],
+  openGraph: {
+    title: 'MALAJE | Not For Everyone',
+    description: 'Ropa deportiva técnica para el atleta de alta intensidad. Rendimiento de precisión.',
+    url: '/',
+    siteName: 'MALAJE',
+    images: [{ url: '/images/canarias-cyclist-hero.jpg', width: 1024, height: 1024 }],
+    locale: 'es_ES',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MALAJE | Not For Everyone',
+    description: 'Ropa deportiva técnica para el atleta de alta intensidad. Rendimiento de precisión.',
+    images: ['/images/canarias-cyclist-hero.jpg'],
+  },
 }
 
 export const viewport: Viewport = {
@@ -38,6 +54,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${spaceGrotesk.variable} ${inter.variable} font-sans antialiased overflow-x-hidden`}>
         {children}
+        <Toaster />
         <Analytics />
       </body>
     </html>

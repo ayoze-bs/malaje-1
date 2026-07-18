@@ -1,5 +1,8 @@
+"use client"
+
 import { Zap } from "lucide-react"
 import Image from "next/image"
+import { toast } from "sonner"
 import type { Product } from "@/lib/products"
 import { formatPrice } from "@/lib/products"
 
@@ -43,7 +46,10 @@ export function FeaturedProduct({ product }: { product: Product }) {
           )}
         </div>
 
-        <button className="w-full md:w-auto bg-black text-white font-[var(--font-headline)] font-bold tracking-widest uppercase py-4 px-12 hover:bg-accent transition-colors duration-0 flex items-center justify-center gap-3">
+        <button
+          className="w-full md:w-auto bg-black text-white font-[var(--font-headline)] font-bold tracking-widest uppercase py-4 px-12 hover:bg-accent transition-colors duration-0 flex items-center justify-center gap-3"
+          onClick={() => toast("Disponible próximamente — contáctanos mientras tanto", { duration: 4000 })}
+        >
           Quick Buy <Zap className="w-5 h-5" />
         </button>
       </div>
