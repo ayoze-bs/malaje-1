@@ -16,6 +16,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://malajeclub.com'),
   title: {
     default: 'MALAJE | Not For Everyone',
     template: '%s',
