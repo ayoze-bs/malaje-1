@@ -16,13 +16,13 @@
   --secondary-foreground: #ffffff;
   --muted: #e2e2e2;
   --muted-foreground: #474747;
-  --accent: #ff00ff;
+  --accent: #ff2fa0;
   --accent-foreground: #ffffff;
   --destructive: #ba1a1a;
   --destructive-foreground: #ffffff;
   --border: #c6c6c6;
   --input: #e2e2e2;
-  --ring: #ff00ff;
+  --ring: #ff2fa0;
   --radius: 0px;
 
   /* MALAJE Design System */
@@ -42,19 +42,19 @@
   --card-foreground: #ffffff;
   --popover: #191919;
   --popover-foreground: #ffffff;
-  --primary: #ff7cf5;
+  --primary: #ff5fb8;
   --primary-foreground: #580058;
   --secondary: #e2e2e2;
   --secondary-foreground: #505252;
   --muted: #262626;
   --muted-foreground: #ababab;
-  --accent: #ff00ff;
+  --accent: #ff2fa0;
   --accent-foreground: #ffffff;
   --destructive: #ff6e84;
   --destructive-foreground: #490013;
   --border: #484848;
   --input: #262626;
-  --ring: #ff7cf5;
+  --ring: #ff5fb8;
 
   /* MALAJE Design System Dark */
   --surface: #0e0e0e;
@@ -129,6 +129,6 @@
 
 /* Selection styling */
 ::selection {
-  background-color: #ff00ff;
+  background-color: #ff2fa0;
   color: white;
 }
