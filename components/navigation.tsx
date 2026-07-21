@@ -10,14 +10,14 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl transition-colors duration-300">
-      <div className="flex justify-between items-center w-full px-8 py-6">
+      <div className="flex justify-between items-center w-full px-6 py-5">
         {/* Brand Logo */}
         <Link href="/" className="block text-foreground">
           <MalajeLogo size="sm" />
         </Link>
 
         {/* Navigation Links - Desktop */}
-        <div className="hidden md:flex gap-12">
+        <div className="hidden md:flex gap-8">
           <Link href="/coleccion" className="font-[var(--font-headline)] font-bold tracking-widest text-xs uppercase text-accent transition-none">
             SHOP
           </Link>
@@ -33,7 +33,7 @@ export function Navigation() {
         </div>
 
         {/* Trailing Icons */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-5">
           <button className="text-foreground hover:text-accent transition-none hidden md:block">
             <User className="w-6 h-6" />
           </button>
