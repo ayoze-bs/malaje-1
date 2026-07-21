@@ -1,31 +1,43 @@
-import { ChevronDown } from "lucide-react"
 import Image from "next/image"
 
 export function HeroSection() {
   return (
-    <section className="relative h-[85vh] w-full bg-black flex items-center justify-center overflow-hidden grainy-overlay">
+    <section className="relative h-[85vh] w-full bg-black overflow-hidden grainy-overlay">
+      {/* Foto de fondo */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/canarias-cyclist-hero.jpg"
-          alt="Ciclista en las Islas Canarias"
+          alt="Ciclistas en las Islas Canarias"
           fill
-          className="object-cover opacity-70 contrast-125"
+          className="object-cover opacity-90 contrast-125"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+        {/* Degradado solo a la izquierda, para que el texto sea legible sin tapar la foto entera */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/30 to-transparent" />
       </div>
 
-      <div className="relative z-20 text-center px-4">
-        <h1 className="font-[var(--font-headline)] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl tracking-normal sm:tracking-[0.1em] md:tracking-[0.2em] lg:tracking-[0.3em] text-white uppercase mb-8 leading-none">
-          NOT FOR<br />EVERYONE
+      {/* Bloque diagonal rosa a la derecha */}
+      <div
+        className="absolute inset-y-0 right-0 z-10 w-[38%] bg-accent hidden md:block"
+        style={{ clipPath: "polygon(35% 0, 100% 0, 100% 100%, 0% 100%)" }}
+      />
+
+      {/* Contenido: texto alineado a la izquierda */}
+      <div className="relative z-20 h-full flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 max-w-4xl">
+        <p className="font-[var(--font-headline)] font-bold text-xs sm:text-sm tracking-[0.3em] text-accent uppercase mb-4">
+          Colección 2026 — Rendimiento sin atajos
+        </p>
+        <h1 className="font-[var(--font-headline)] font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight text-white uppercase mb-10 leading-[0.9]">
+          NO HAY<br />META FÁCIL
         </h1>
-        <button className="bg-white text-black font-[var(--font-headline)] font-bold tracking-widest uppercase py-5 px-12 hover:bg-accent hover:text-white transition-colors duration-0">
-          Shop Collection
-        </button>
-      </div>
-
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20">
-        <ChevronDown className="w-10 h-10 text-white animate-bounce" />
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button className="bg-accent text-white font-[var(--font-headline)] font-bold tracking-widest uppercase py-5 px-10 hover:bg-white hover:text-black transition-colors duration-0">
+            Comprar Colección
+          </button>
+          <button className="border-2 border-white text-white font-[var(--font-headline)] font-bold tracking-widest uppercase py-5 px-10 hover:bg-white hover:text-black transition-colors duration-0">
+            Ver la Historia
+          </button>
+        </div>
       </div>
     </section>
   )
